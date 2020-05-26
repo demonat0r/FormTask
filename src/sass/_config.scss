@@ -1,0 +1,11 @@
+$lightblue-color: #212bff;
+$disable-color: #8288a2;
+$disable-bgcolor:  #edeeef;
+$light-grey: #b8bed8;
+$txt-color: #3f3f3f;
+$font-stack: 'Montserrat', sans-serif;
+
+%flex-tool {
+    display: flex;
+    flex-direction: column;
+}

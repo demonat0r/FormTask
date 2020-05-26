@@ -1,0 +1,31 @@
+{
+  "name": "greensight_task",
+  "version": "1.0.0",
+  "description": "small task for greensight",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "demonat0r",
+  "license": "ISC",
+  "browserslist": [
+    "ie >= 11",
+    "edge >= 14",
+    "ff >= 58",
+    "chrome >= 56",
+    "safari >= 11",
+    "opera >= 48",
+    "ios >= 10.3"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.14.1"
+  }
+}

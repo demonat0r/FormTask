@@ -1,0 +1,77 @@
+input, textarea {
+    border-radius: 4px;
+    border: 1px solid #dadef0;
+    padding-left: 21px;
+    line-height: 26px;
+    font-family: $font-stack;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;  
+
+    &::placeholder {
+        color: $light-grey;
+    }
+    
+    &:hover {
+        border: 1px solid #c3c9db;
+    }
+
+    &:focus {
+        border: 1px solid #8288a2;
+        outline: none;
+    }
+
+    &.error {
+        border: 1px solid #ff1e38;
+    }
+
+    &:disabled {
+        border: none;
+        background-color: $disable-bgcolor;
+    }
+}
+
+
+input {    
+    &[type='text'], &[type='tel']{
+        height: 56px;
+    }
+
+    &[type='radio'] {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    &[type='submit'] {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 0;
+        width: 208px;
+        height: 56px;
+        border-radius: 28px;
+        background-color: $lightblue-color;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+
+        &:hover {
+            background-color: #2029ea;
+        }
+        
+        &:active {
+            background-color: #1e26d8;
+        }
+
+        &:disabled {
+            background-color: $disable-bgcolor;
+            color: $light-grey;
+        }
+    }
+}
+
+.error-msg {
+    visibility: hidden;
+    font-size: 12px;
+    color: #ff1e38;
+    line-height: 20px;
+}
