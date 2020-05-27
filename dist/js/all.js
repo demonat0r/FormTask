@@ -1,5 +1,3 @@
-"use strict";
-
 //polyfill for IE11
 if ('NodeList' in window && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = function (callback, thisArg) {
@@ -12,12 +10,12 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
 } //tabs navigation
 
 
-document.querySelectorAll('.tab-item').forEach(function (element) {
-  element.addEventListener('click', function (event) {
-    document.querySelectorAll('.tabs-content').forEach(function (elem) {
+document.querySelectorAll('.tab-item').forEach(element => {
+  element.addEventListener('click', event => {
+    document.querySelectorAll('.tabs-content').forEach(elem => {
       elem.style.display = 'none';
     });
-    document.querySelectorAll('.tab-item').forEach(function (e) {
+    document.querySelectorAll('.tab-item').forEach(e => {
       e.classList.remove('active');
     });
     event.currentTarget.classList.add('active');
@@ -39,8 +37,6 @@ $.fn.setCursorPosition = function (pos) {
     range.select();
   }
 };
-"use strict";
-
 ymaps.ready(init);
 
 function init() {
@@ -70,24 +66,20 @@ function init() {
     myMap.behaviors.disable('scrollZoom');
   }
 }
-"use strict";
+const firstFormFields = document.querySelectorAll('.delivery-form_required');
+const secondFormFields = document.querySelectorAll('.pickup-form_radio-required');
+const firstForm = document.querySelector('.delivery-form');
+const secondForm = document.querySelector('.pickup-form');
+const errorRadio = document.getElementById('error-radio'); //first form validation
 
-var firstFormFields = document.querySelectorAll('.required');
-var secondFormFields = document.querySelectorAll('.radio-required');
-var firstForm = document.querySelector('.first_tab_form');
-var secondForm = document.querySelector('.second_tab_form');
-firstForm.addEventListener('submit', function (e) {
+firstForm.addEventListener('submit', e => {
   e.preventDefault();
-  firstFormFields.forEach(function (el) {
-    return firstFormCheck(el);
-  });
+  firstFormFields.forEach(el => firstFormCheck(el));
 });
-firstFormFields.forEach(function (el) {
-  el.onblur = function () {
-    return firstFormCheck(el);
-  };
+firstFormFields.forEach(el => {
+  el.onblur = () => firstFormCheck(el);
 
-  el.onfocus = function () {
+  el.onfocus = () => {
     el.nextElementSibling.style.visibility = 'hidden';
     el.classList.remove('error');
   };
@@ -99,7 +91,7 @@ function firstFormCheck(field) {
     field.nextElementSibling.innerHTML = 'Это поле обязательно для заполнения';
     field.nextElementSibling.style.visibility = 'visible';
   } else if (field.classList[1] === 'tel') {
-    var regExp = /\+7\(\d{3}\) \d{3}-\d{2}-\d{2}/;
+    let regExp = /\+7\(\d{3}\) \d{3}-\d{2}-\d{2}/;
 
     if (!regExp.test(field.value)) {
       field.classList.add('error');
@@ -110,9 +102,9 @@ function firstFormCheck(field) {
       field.nextElementSibling.style.visibility = 'hidden';
     }
   } else if (field.classList[1] === 'person') {
-    var _regExp = /^[а-яё -]+$/i;
+    let regExp = /^[а-яё -]+$/i;
 
-    if (!_regExp.test(field.value)) {
+    if (!regExp.test(field.value)) {
       field.classList.add('error');
       field.nextElementSibling.innerHTML = 'Только кириллица, пробел и тире';
       field.nextElementSibling.style.visibility = 'visible';
@@ -124,26 +116,27 @@ function firstFormCheck(field) {
     field.nextElementSibling.style.visibility = 'hidden';
     field.classList.remove('error');
   }
-}
+} //second form validation
 
-secondFormFields.forEach(function (el) {
-  el.addEventListener('click', function () {
-    document.getElementById('error-radio').style.visibility = 'hidden';
+
+secondFormFields.forEach(el => {
+  el.addEventListener('click', () => {
+    errorRadio.style.visibility = 'hidden';
   });
 });
-secondForm.addEventListener('submit', function (e) {
+secondForm.addEventListener('submit', e => {
   e.preventDefault();
-  var checked = false;
+  let checked = false;
 
-  for (var i = 0; i < secondFormFields.length; i++) {
+  for (let i = 0; i < secondFormFields.length; i++) {
     if (secondFormFields[i].checked) {
       checked = true;
     }
   }
 
   if (!checked) {
-    document.getElementById('error-radio').innerHTML = 'Выберите один из вариантов';
-    document.getElementById('error-radio').style.visibility = 'visible';
-  } else document.getElementById('error-radio').style.visibility = 'hidden';
+    errorRadio.innerHTML = 'Выберите один из вариантов';
+    errorRadio.style.visibility = 'visible';
+  } else errorRadio.style.visibility = 'hidden';
 });
 //# sourceMappingURL=all.js.map

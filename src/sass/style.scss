@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: lightblue;
+    background: #E5E5E5;
     font-family: $font-stack;
     font-weight: bold;
     font-size: 14px;
@@ -20,121 +20,89 @@ body {
     h1 {
         margin: 41px 0;
     }
-    
-    a {
-        position: relative;
-        color: $disable-color;
-        text-decoration: none;
-        padding: 38px 62px 30px 38px;
+}
+
+.tab-item {
+    width: 152px;
+    height: 48px;
+    border: none;
+    background-color: $disable-bgcolor;
+    border-radius: 5px 5px 0px 0px;
+    color: #999999;
+    cursor: pointer;
+
+    &.active {
+        background-color: #fff;
+        color: #215BF0;
+    }
+
+    label {
         cursor: pointer;
+    }
 
-        &::before {
-            border: .1em solid #aaa;
-            content: ""; 
-            position: absolute;
-            top: 0; right: 0; bottom: .5em; left: 0;
-            z-index: -1;
-            border: none;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 3px 0 0 rgba(0, 0, 0, 0.08);
-            transform: perspective(10px) rotateX(2deg);
-            transform-origin: bottom left;
-            background: $disable-bgcolor;
-        }
-
-        &.active {
-            z-index: 2;
-            color: $lightblue-color;
-        }
-
-        &.active::before {
-            background: #fff;   
-        }
-
-        &:hover {
-            color: $lightblue-color;
-           
-        }
-
-        &:last-of-type {
-            margin-left: -35px;
-        }
-
-        i {
-            display: none;
-        }
-        label {
-            cursor: pointer;
-            line-height: 20px;
-        }
+    i {
+        display: none;
     }
 }
 
+
 .tabs-content {
     width: 100%;
-    background-color: #fff;
-    height: 530px;
-    margin-top: 21px;
     position: absolute;
+    display:none;
+    padding: 20px 35px 20px 25px;
+    background-color: #fff;
+
+    &:first-of-type {
+        display: block;
+    }
     
     label {
         line-height: 26px;
     }    
 }
 
+.delivery-form {
+    display: grid;
+    grid-template-areas: 'name ph' 'adr adr' 'com com' '. btn';
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 12px;
+    grid-row-gap: 10px;
+    
 
-#first_tab {
-    display: block;
-    padding: 20px 35px 20px 25px;
+    &_name {
+        grid-area: name;
+        @extend %flex-tool;  
+    }
 
-    form {
-        display: grid;
-        grid-template-areas: 'name ph' 'adr adr' 'com com' '. btn';
-        grid-template-columns: 50% 50%;
-        grid-column-gap: 12px;
-        grid-row-gap: 10px;
-        position: relative;
-       
+    &_phone {
+        grid-area: ph;
+        @extend %flex-tool; 
+    }
 
-        .name {
-            grid-area: name;
-            @extend %flex-tool;  
+    &_adress {
+        grid-area: adr;
+        @extend %flex-tool; 
+    }
+
+    &_comment {
+        grid-area: com;
+        @extend %flex-tool; 
+
+        textarea {
+            height: 111px;
+            resize: none;
         }
+    }
 
-        .phone {
-            grid-area: ph;
-            @extend %flex-tool; 
-        }
-
-        .adress {
-            grid-area: adr;
-            @extend %flex-tool; 
-        }
-
-        .comment {
-            grid-area: com;
-            @extend %flex-tool; 
-
-            textarea {
-                height: 111px;
-                resize: none;
-            }
-        }
-
-        input[type="submit"] {
-           grid-area: btn;
-           position: absolute;
-           right: 0;
-        }
+    &_submit {
+        grid-area: btn;
+        margin-left: auto;
     }
 }
 
-#second_tab {
-    display: none;
-    padding: 26px 32px;
-}
 
-.form {
+.pickup-form {
 
     &_radio {
         display: flex;
@@ -215,9 +183,7 @@ body {
     &_submit {
         display: block;
         margin-left: auto;
-        margin-right: 0;
-    }
-    
+    }   
 }
 
 @import 'mobile.scss';

@@ -1,4 +1,4 @@
-#first_tab form .name, #first_tab form .phone, #first_tab form .adress, #first_tab form .comment {
+.delivery-form_name, .delivery-form_phone, .delivery-form_adress, .delivery-form_comment {
   display: flex;
   flex-direction: column; }
 
@@ -66,7 +66,7 @@ input[type='submit'] {
   box-sizing: border-box; }
 
 body {
-  background-color: lightblue;
+  background: #E5E5E5;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 14px; }
@@ -77,107 +77,81 @@ body {
   position: relative; }
   .container h1 {
     margin: 41px 0; }
-  .container a {
-    position: relative;
-    color: #8288a2;
-    text-decoration: none;
-    padding: 38px 62px 30px 38px;
+
+.tab-item {
+  width: 152px;
+  height: 48px;
+  border: none;
+  background-color: #edeeef;
+  border-radius: 5px 5px 0px 0px;
+  color: #999999;
+  cursor: pointer; }
+  .tab-item.active {
+    background-color: #fff;
+    color: #215BF0; }
+  .tab-item label {
     cursor: pointer; }
-    .container a::before {
-      border: .1em solid #aaa;
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: .5em;
-      left: 0;
-      z-index: -1;
-      border: none;
-      border-radius: 10px 10px 0 0;
-      box-shadow: 3px 0 0 rgba(0, 0, 0, 0.08);
-      transform: perspective(10px) rotateX(2deg);
-      transform-origin: bottom left;
-      background: #edeeef; }
-    .container a.active {
-      z-index: 2;
-      color: #212bff; }
-    .container a.active::before {
-      background: #fff; }
-    .container a:hover {
-      color: #212bff; }
-    .container a:last-of-type {
-      margin-left: -35px; }
-    .container a i {
-      display: none; }
-    .container a label {
-      cursor: pointer;
-      line-height: 20px; }
+  .tab-item i {
+    display: none; }
 
 .tabs-content {
   width: 100%;
-  background-color: #fff;
-  height: 530px;
-  margin-top: 21px;
-  position: absolute; }
+  position: absolute;
+  display: none;
+  padding: 20px 35px 20px 25px;
+  background-color: #fff; }
+  .tabs-content:first-of-type {
+    display: block; }
   .tabs-content label {
     line-height: 26px; }
 
-#first_tab {
-  display: block;
-  padding: 20px 35px 20px 25px; }
-  #first_tab form {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-rows: auto 10px auto 10px auto 10px auto;
-    grid-template-areas: 'name ph' 'adr adr' 'com com' '. btn';
-    -ms-grid-columns: 50% 12px 50%;
-    grid-template-columns: 50% 50%;
-    grid-column-gap: 12px;
-    grid-row-gap: 10px;
-    position: relative; }
-    #first_tab form .name {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-      grid-area: name; }
-    #first_tab form .phone {
-      -ms-grid-row: 1;
-      -ms-grid-column: 3;
-      grid-area: ph; }
-    #first_tab form .adress {
-      -ms-grid-row: 3;
-      -ms-grid-column: 1;
-      -ms-grid-column-span: 3;
-      grid-area: adr; }
-    #first_tab form .comment {
-      -ms-grid-row: 5;
-      -ms-grid-column: 1;
-      -ms-grid-column-span: 3;
-      grid-area: com; }
-      #first_tab form .comment textarea {
-        height: 111px;
-        resize: none; }
-    #first_tab form input[type="submit"] {
-      -ms-grid-row: 7;
-      -ms-grid-column: 3;
-      grid-area: btn;
-      position: absolute;
-      right: 0; }
+.delivery-form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 10px auto 10px auto 10px auto;
+  grid-template-areas: 'name ph' 'adr adr' 'com com' '. btn';
+  -ms-grid-columns: 50% 12px 50%;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 12px;
+  grid-row-gap: 10px; }
+  .delivery-form_name {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: name; }
+  .delivery-form_phone {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: ph; }
+  .delivery-form_adress {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: adr; }
+  .delivery-form_comment {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: com; }
+    .delivery-form_comment textarea {
+      height: 111px;
+      resize: none; }
+  .delivery-form_submit {
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+    grid-area: btn;
+    margin-left: auto; }
 
-#second_tab {
-  display: none;
-  padding: 26px 32px; }
-
-.form_radio {
+.pickup-form_radio {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; }
-  .form_radio-item {
+  .pickup-form_radio-item {
     position: relative; }
-    .form_radio-item label {
+    .pickup-form_radio-item label {
       padding-left: 35px;
       color: #000;
       cursor: pointer; }
-      .form_radio-item label::before {
+      .pickup-form_radio-item label::before {
         content: "";
         display: block;
         position: absolute;
@@ -189,11 +163,11 @@ body {
         top: 0;
         left: 0;
         z-index: 1; }
-      .form_radio-item label:hover {
+      .pickup-form_radio-item label:hover {
         color: #212bff; }
-        .form_radio-item label:hover::before {
+        .pickup-form_radio-item label:hover::before {
           border-color: #212bff; }
-      .form_radio-item label:after {
+      .pickup-form_radio-item label:after {
         content: "";
         width: 6px;
         height: 6px;
@@ -204,91 +178,66 @@ body {
         left: 8px;
         z-index: 2;
         opacity: 0; }
-      .form_radio-item label:disabled {
+      .pickup-form_radio-item label:disabled {
         color: #b8bed8; }
-        .form_radio-item label:disabled::before {
+        .pickup-form_radio-item label:disabled::before {
           background-color: #edeeef; }
-    .form_radio-item input[type="radio"]:checked + label::before {
+    .pickup-form_radio-item input[type="radio"]:checked + label::before {
       border-color: #212bff; }
-    .form_radio-item input[type="radio"]:checked + label::after {
+    .pickup-form_radio-item input[type="radio"]:checked + label::after {
       background-color: #212bff;
       opacity: 1; }
 
-.form_map {
+.pickup-form_map {
   width: 100%;
   height: 360px;
   margin-top: 5px;
   margin-bottom: 10px; }
 
-.form_submit {
+.pickup-form_submit {
   display: block;
-  margin-left: auto;
-  margin-right: 0; }
+  margin-left: auto; }
 
 @media (max-width: 768px) {
-  .form_radio-item:last-of-type {
-    margin-top: 24px; }
-  #first_tab {
-    display: block;
-    position: relative;
-    margin: 0;
-    height: 660px; }
-    #first_tab form {
-      grid-template-areas: 'name name' 'ph ph' 'adr adr' 'com com' 'btn btn'; }
-  #second_tab {
-    position: relative;
-    height: 590px;
-    margin: 0; }
-  .container a {
+  .tab-item {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: #fff;
-    padding-left: 16px;
-    padding-top: 20px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    border-top: 1px solid #8288a2;
-    border-bottom: 1px solid #8288a2;
-    color: #8288a2; }
-    .container a i {
+    padding: 0 10px;
+    border-radius: 0; }
+    .tab-item.active i {
+      transform: rotate(180deg); }
+    .tab-item i {
       display: flex;
-      float: right;
       transition: 0.5s; }
-    .container a.active {
-      color: #212bff; }
-      .container a.active i {
-        transform: rotate(180deg); }
-    .container a::before {
-      display: none; }
-    .container a:last-of-type {
-      margin-left: 0; }
-      .container a:last-of-type.active {
-        border-top: none; }
-    .container a:hover {
-      color: #212bff; }
-    #first_tab form .name {
+  .tabs-content {
+    position: relative; }
+  .delivery-form {
+    grid-template-areas: 'name name' 'ph ph' 'adr adr' 'com com' 'btn btn'; }
+  .pickup-form_radio-item:last-of-type {
+    margin-top: 24px; }
+  .delivery-form_name {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-    #first_tab form .phone {
+  .delivery-form_phone {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-    #first_tab form .adress {
+  .delivery-form_adress {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-    #first_tab form .comment {
+  .delivery-form_comment {
     -ms-grid-row: 4;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-    #first_tab form input[type="submit"] {
+  .delivery-form_submit {
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; } }
 
 @media (max-width: 500px) {
-  #second_tab {
-    height: 630px; }
-  .form_submit {
+  .delivery-form_submit,
+  .pickup-form_submit {
     margin: 0 auto; } }

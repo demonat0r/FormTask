@@ -1,78 +1,41 @@
 @media (max-width: 768px) {
-    .form_radio-item:last-of-type {
+
+    .tab-item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        border-radius: 0;
+
+        &.active {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+
+        i {
+            display: flex;
+            transition: 0.5s;
+        }
+    }
+
+    .tabs-content {
+        position: relative;
+    }
+
+    .delivery-form {
+        grid-template-areas: 'name name' 'ph ph' 'adr adr' 'com com' 'btn btn';
+    }
+
+    .pickup-form_radio-item:last-of-type {
         margin-top: 24px;
     }
-
-    #first_tab {
-        display: block;
-        position: relative;
-        margin: 0;
-        height: 660px;
-
-        form {
-            grid-template-areas: 'name name' 'ph ph' 'adr adr' 'com com' 'btn btn';
-        }
-    }
-
-    #second_tab {
-        position: relative;
-        height: 590px;
-        margin: 0;
-    }
-
-    .container {  
-        a {
-            display: flex;
-            justify-content: space-between;
-            background-color: #fff;
-            padding-left: 16px;
-            padding-top: 20px;
-            padding-right: 30px;
-            padding-bottom: 20px;
-            border-top: 1px solid $disable-color;
-            border-bottom: 1px solid $disable-color;
-            color: $disable-color;
-
-            i {
-                display: flex;
-                float: right;
-                transition: 0.5s;
-            }
-
-            &.active {
-                color: $lightblue-color;
-                
-                i {
-                    transform: rotate(180deg)
-                }
-            }
-         
-            &::before {
-                display: none;
-            }
-
-            &:last-of-type {
-                margin-left: 0;
-
-                &.active {
-                    border-top: none;
-                }
-            }
-
-            &:hover {
-                color: $lightblue-color;
-            }
-        }
-    }
-    
 }
 
 @media (max-width: 500px) {
-    #second_tab {
-        height: 630px;
-    }
 
-    .form_submit {
+    .delivery-form_submit,
+    .pickup-form_submit {
         margin: 0 auto;
     }
 }
