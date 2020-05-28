@@ -4,59 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8a64d1d7cb.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <h1>Выберите способ доставки</h1>
+        <h1 class="container_title">Выберите способ доставки</h1>
         <button class="tab-item active" name="first_tab">
-            <label>Доставка</label> 
+            <label class="tab-item_title">Доставка</label> 
             <i class="fas fa-chevron-down"></i>
         </button>
         <div id="first_tab" class="tabs-content">
             <form class="delivery-form" action="#">
                 <div class="delivery-form_name">
-                    <label>ФИО</label>
-                    <input class="delivery-form_required person" type="text" placeholder="Только кириллица">
-                    <label class="error-msg">.</label>
+                    <label class="delivery-form_label">ФИО</label>
+                    <input class="delivery-form_input person" type="text" placeholder="Только кириллица">
+                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form_error-msg">.</label>
                 </div>
                 <div class="delivery-form_phone">
-                    <label>Телефон</label>
-                    <input class="delivery-form_required tel" id="phone" type="tel" placeholder="+7 (___) ___-__-__" >
-                    <label class="error-msg">.</label>
+                    <label class="delivery-form_label">Телефон</label>
+                    <input class="delivery-form_input tel" id="phone" type="tel" placeholder="+7 (___) ___-__-__" >
+                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form_error-msg">.</label>
                 </div>
                 <div class="delivery-form_adress">    
-                    <label>Адрес доставки</label>
-                    <input class="delivery-form_required" type="text" placeholder="Город, улица, дом">
-                    <label class="error-msg">.</label>
+                    <label class="delivery-form_label">Адрес доставки</label>
+                    <input class="delivery-form_input" type="text" placeholder="Город, улица, дом">
+                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form_error-msg">.</label>
                 </div>
                 <div class="delivery-form_comment">
-                    <label>Комментарий</label>
-                    <textarea class="delivery-form_required"></textarea>
-                    <label class="error-msg">.</label>
+                    <label class="delivery-form_label">Комментарий</label>
+                    <textarea class="delivery-form_input comment"></textarea>
+                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form_error-msg">.</label>
                 </div>
                 <input class="delivery-form_submit" type="submit" value="Оформить заказ">
             </form>
         </div>
         <button class="tab-item" name="second_tab">
-            <label for="">Самовывоз</label> 
+            <label class="tab-item_title">Самовывоз</label> 
             <i class="fas fa-chevron-down"></i>
         </button>
         <div id="second_tab" class="tabs-content">
             <form action="#" class="pickup-form">
-                <div class="pickup-form_radio">
+                <div class="pickup-form_radio-group">
                     <div class="pickup-form_radio-item">
-                        <input class="pickup-form_radio-required" type="radio" name="adr" id="radio_1">
-                        <label for="radio_1">Пункт Выдачи заказов Песчаная улица, дом 13 </label>
+                        <input class="pickup-form_radio" type="radio" name="adr" id="radio_1">
+                        <label class="pickup-form_radio-label" for="radio_1">Пункт Выдачи заказов Песчаная улица, дом 13 </label>
                     </div>
                     <div class="pickup-form_radio-item">
-                        <input class="pickup-form_radio-required" type="radio" name="adr" id="radio_2">
-                        <label for="radio_2">Пункт Выдачи заказов Подсосенский переулок, 11</label>
+                        <input class="pickup-form_radio" type="radio" name="adr" id="radio_2">
+                        <label class="pickup-form_radio-label" for="radio_2">Пункт Выдачи заказов Подсосенский переулок, 11</label>
                     </div>
                 </div>
-                <label id="error-radio" class="error-msg">.</label>
+                <label id="error-radio" class="pickup-form_error-msg">.</label>
                 <div id="map" class="pickup-form_map"></div>
                 <input class="pickup-form_submit" type="submit" value="Оформить заказ">
             </form>

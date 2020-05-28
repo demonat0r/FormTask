@@ -1,77 +1,92 @@
-input, textarea {
-    border-radius: 4px;
-    border: 1px solid #dadef0;
+.delivery-form_input {
     padding-left: 21px;
-    line-height: 26px;
-    font-family: $font-stack;
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: 500;  
-
-    &::placeholder {
-        color: $light-grey;
-    }
+    margin-top: 12px;
+    border-radius: 4px;
+    border: 1px solid #999999;
+    height: 56px;
     
+    font-family: $font-stack;
+    color: $dark-color;
+    font-size: 16px;
+    font-weight: normal;  
+    line-height: 24px;
+    
+    &::placeholder {
+        color: #999999;
+    }
+
     &:hover {
         border: 1px solid #c3c9db;
     }
 
     &:focus {
-        border: 1px solid #8288a2;
+        border: 1px solid $dark-color;
         outline: none;
-    }
-
-    &.error {
-        border: 1px solid #ff1e38;
     }
 
     &:disabled {
         border: none;
         background-color: $disable-bgcolor;
     }
+
+    &.comment {
+        height: 111px;
+        resize: none;
+    }
+
 }
 
+.delivery-form_submit,
+.pickup-form_submit {
+    font-size: 16px;
+    line-height: 24px;
+    width: 200px;
+    height: 48px;
+    border-radius: 28px;
+    background-color: $lightblue-color;
+    color: #fff;
+    cursor: pointer;
+    border: none;
 
-input {    
-    &[type='text'], &[type='tel']{
-        height: 56px;
+    &:hover {
+        background-color: #2029ea;
+    }
+    
+    &:active {
+        background-color: #0F41C4;
     }
 
-    &[type='radio'] {
-        visibility: hidden;
-        position: absolute;
-    }
-
-    &[type='submit'] {
-        font-size: 16px;
-        line-height: 24px;
-        padding: 0;
-        width: 208px;
-        height: 56px;
-        border-radius: 28px;
-        background-color: $lightblue-color;
-        color: #fff;
-        cursor: pointer;
-        border: none;
-
-        &:hover {
-            background-color: #2029ea;
-        }
-        
-        &:active {
-            background-color: #1e26d8;
-        }
-
-        &:disabled {
-            background-color: $disable-bgcolor;
-            color: $light-grey;
-        }
+    &:disabled {
+        background-color: $disable-bgcolor;
+        color: $light-grey;
     }
 }
 
-.error-msg {
+.pickup-form_radio {
+    visibility: hidden;
+    position: absolute;
+}
+
+
+.delivery-form_error-msg,
+.pickup-form_error-msg {
     visibility: hidden;
     font-size: 12px;
-    color: #ff1e38;
-    line-height: 20px;
+    line-height: 16px;
+    color: #F12828;
+}
+
+.delivery-form_error-img {
+    visibility: hidden;
+    top: 47px;
+    right: 10px;
+    position: absolute;
+}
+
+.delivery-form_error-msg,
+.delivery-form_error-img {
+
+    &.visible {
+        visibility: visible;
+    }
 }

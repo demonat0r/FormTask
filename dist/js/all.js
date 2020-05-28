@@ -1,3 +1,5 @@
+"use strict";
+
 //polyfill for IE11
 if ('NodeList' in window && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = function (callback, thisArg) {
@@ -10,12 +12,12 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
 } //tabs navigation
 
 
-document.querySelectorAll('.tab-item').forEach(element => {
-  element.addEventListener('click', event => {
-    document.querySelectorAll('.tabs-content').forEach(elem => {
+document.querySelectorAll('.tab-item').forEach(function (element) {
+  element.addEventListener('click', function (event) {
+    document.querySelectorAll('.tabs-content').forEach(function (elem) {
       elem.style.display = 'none';
     });
-    document.querySelectorAll('.tab-item').forEach(e => {
+    document.querySelectorAll('.tab-item').forEach(function (e) {
       e.classList.remove('active');
     });
     event.currentTarget.classList.add('active');
@@ -37,6 +39,8 @@ $.fn.setCursorPosition = function (pos) {
     range.select();
   }
 };
+"use strict";
+
 ymaps.ready(init);
 
 function init() {
@@ -66,69 +70,78 @@ function init() {
     myMap.behaviors.disable('scrollZoom');
   }
 }
-const firstFormFields = document.querySelectorAll('.delivery-form_required');
-const secondFormFields = document.querySelectorAll('.pickup-form_radio-required');
-const firstForm = document.querySelector('.delivery-form');
-const secondForm = document.querySelector('.pickup-form');
-const errorRadio = document.getElementById('error-radio'); //first form validation
+"use strict";
 
-firstForm.addEventListener('submit', e => {
+var firstFormFields = document.querySelectorAll('.delivery-form_input');
+var firstFormMessages = document.querySelectorAll('.delivery-form_error-msg');
+var firstFormImages = document.querySelectorAll('.delivery-form_error-img');
+var secondFormFields = document.querySelectorAll('.pickup-form_radio');
+var firstForm = document.querySelector('.delivery-form');
+var secondForm = document.querySelector('.pickup-form');
+var errorRadio = document.getElementById('error-radio'); //first form validation
+
+firstForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  firstFormFields.forEach(el => firstFormCheck(el));
+  firstFormFields.forEach(function (el, index) {
+    return firstFormCheck(el, index);
+  });
 });
-firstFormFields.forEach(el => {
-  el.onblur = () => firstFormCheck(el);
+firstFormFields.forEach(function (el, index) {
+  el.onblur = function () {
+    return firstFormCheck(el, index);
+  };
 
-  el.onfocus = () => {
-    el.nextElementSibling.style.visibility = 'hidden';
-    el.classList.remove('error');
+  el.onfocus = function () {
+    return removeErrorItems(index);
   };
 });
 
-function firstFormCheck(field) {
+function setErrorItems(index, msg) {
+  firstFormMessages[index].innerHTML = msg;
+  firstFormMessages[index].classList.add('visible');
+  firstFormImages[index].classList.add('visible');
+}
+
+function removeErrorItems(index) {
+  firstFormMessages[index].classList.remove('visible');
+  firstFormImages[index].classList.remove('visible');
+}
+
+function firstFormCheck(field, i) {
   if (field.value === '') {
-    field.classList.add('error');
-    field.nextElementSibling.innerHTML = 'Это поле обязательно для заполнения';
-    field.nextElementSibling.style.visibility = 'visible';
+    setErrorItems(i, 'Это поле обязательно для заполнения');
   } else if (field.classList[1] === 'tel') {
-    let regExp = /\+7\(\d{3}\) \d{3}-\d{2}-\d{2}/;
+    var regExp = /\+7\(\d{3}\) \d{3}-\d{2}-\d{2}/;
 
     if (!regExp.test(field.value)) {
-      field.classList.add('error');
-      field.nextElementSibling.innerHTML = 'Неверно введен номер телефона';
-      field.nextElementSibling.style.visibility = 'visible';
+      setErrorItems(i, 'Неверно введен номер телефона');
     } else {
-      field.classList.remove('error');
-      field.nextElementSibling.style.visibility = 'hidden';
+      removeErrorItems(i);
     }
   } else if (field.classList[1] === 'person') {
-    let regExp = /^[а-яё -]+$/i;
+    var _regExp = /^[а-яё -]+$/i;
 
-    if (!regExp.test(field.value)) {
-      field.classList.add('error');
-      field.nextElementSibling.innerHTML = 'Только кириллица, пробел и тире';
-      field.nextElementSibling.style.visibility = 'visible';
+    if (!_regExp.test(field.value)) {
+      setErrorItems(i, 'Только кириллица, пробел и тире');
     } else {
-      field.classList.remove('error');
-      field.nextElementSibling.style.visibility = 'hidden';
+      removeErrorItems(i);
     }
   } else {
-    field.nextElementSibling.style.visibility = 'hidden';
-    field.classList.remove('error');
+    removeErrorItems(i);
   }
 } //second form validation
 
 
-secondFormFields.forEach(el => {
-  el.addEventListener('click', () => {
+secondFormFields.forEach(function (el) {
+  el.addEventListener('click', function () {
     errorRadio.style.visibility = 'hidden';
   });
 });
-secondForm.addEventListener('submit', e => {
+secondForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  let checked = false;
+  var checked = false;
 
-  for (let i = 0; i < secondFormFields.length; i++) {
+  for (var i = 0; i < secondFormFields.length; i++) {
     if (secondFormFields[i].checked) {
       checked = true;
     }

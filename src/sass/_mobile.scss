@@ -6,10 +6,18 @@
         justify-content: space-between;
         padding: 0 10px;
         border-radius: 0;
+        border-top: 1px solid $disable-color;
+        border-bottom: 1px solid $disable-color;
 
         &.active {
             i {
                 transform: rotate(180deg);
+            }
+        }
+
+        &:last-of-type {
+            &.active {
+                border-top: none;
             }
         }
 

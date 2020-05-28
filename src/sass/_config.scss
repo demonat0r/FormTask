@@ -1,11 +1,12 @@
-$lightblue-color: #212bff;
+$lightblue-color: #215BF0;
 $disable-color: #8288a2;
+$dark-color: #222222;
 $disable-bgcolor:  #edeeef;
-$light-grey: #b8bed8;
-$txt-color: #3f3f3f;
-$font-stack: 'Montserrat', sans-serif;
+$light-grey: #999999;
+$font-stack: 'Roboto', sans-serif;
 
 %flex-tool {
     display: flex;
     flex-direction: column;
+    position: relative; 
 }

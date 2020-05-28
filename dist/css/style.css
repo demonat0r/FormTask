@@ -1,82 +1,101 @@
 .delivery-form_name, .delivery-form_phone, .delivery-form_adress, .delivery-form_comment {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  position: relative; }
 
-input, textarea {
-  border-radius: 4px;
-  border: 1px solid #dadef0;
+.delivery-form_input {
   padding-left: 21px;
-  line-height: 26px;
-  font-family: "Montserrat", sans-serif;
-  margin-top: 5px;
+  margin-top: 12px;
+  border-radius: 4px;
+  border: 1px solid #999999;
+  height: 56px;
+  font-family: "Roboto", sans-serif;
+  color: #222222;
   font-size: 16px;
-  font-weight: 500; }
-  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-    color: #b8bed8; }
-  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-    color: #b8bed8; }
-  input::-ms-input-placeholder, textarea::-ms-input-placeholder {
-    color: #b8bed8; }
-  input::placeholder, textarea::placeholder {
-    color: #b8bed8; }
-  input:hover, textarea:hover {
+  font-weight: normal;
+  line-height: 24px; }
+  .delivery-form_input::-webkit-input-placeholder {
+    color: #999999; }
+  .delivery-form_input:-ms-input-placeholder {
+    color: #999999; }
+  .delivery-form_input::-ms-input-placeholder {
+    color: #999999; }
+  .delivery-form_input::placeholder {
+    color: #999999; }
+  .delivery-form_input:hover {
     border: 1px solid #c3c9db; }
-  input:focus, textarea:focus {
-    border: 1px solid #8288a2;
+  .delivery-form_input:focus {
+    border: 1px solid #222222;
     outline: none; }
-  input.error, textarea.error {
-    border: 1px solid #ff1e38; }
-  input:disabled, textarea:disabled {
+  .delivery-form_input:disabled {
     border: none;
     background-color: #edeeef; }
+  .delivery-form_input.comment {
+    height: 111px;
+    resize: none; }
 
-input[type='text'], input[type='tel'] {
-  height: 56px; }
-
-input[type='radio'] {
-  visibility: hidden;
-  position: absolute; }
-
-input[type='submit'] {
+.delivery-form_submit,
+.pickup-form_submit {
   font-size: 16px;
   line-height: 24px;
-  padding: 0;
-  width: 208px;
-  height: 56px;
+  width: 200px;
+  height: 48px;
   border-radius: 28px;
-  background-color: #212bff;
+  background-color: #215BF0;
   color: #fff;
   cursor: pointer;
   border: none; }
-  input[type='submit']:hover {
+  .delivery-form_submit:hover,
+  .pickup-form_submit:hover {
     background-color: #2029ea; }
-  input[type='submit']:active {
-    background-color: #1e26d8; }
-  input[type='submit']:disabled {
+  .delivery-form_submit:active,
+  .pickup-form_submit:active {
+    background-color: #0F41C4; }
+  .delivery-form_submit:disabled,
+  .pickup-form_submit:disabled {
     background-color: #edeeef;
-    color: #b8bed8; }
+    color: #999999; }
 
-.error-msg {
+.pickup-form_radio {
+  visibility: hidden;
+  position: absolute; }
+
+.delivery-form_error-msg,
+.pickup-form_error-msg {
   visibility: hidden;
   font-size: 12px;
-  color: #ff1e38;
-  line-height: 20px; }
+  line-height: 16px;
+  color: #F12828; }
+
+.delivery-form_error-img {
+  visibility: hidden;
+  top: 47px;
+  right: 10px;
+  position: absolute; }
+
+.delivery-form_error-msg.visible,
+.delivery-form_error-img.visible {
+  visibility: visible; }
 
 * {
   box-sizing: border-box; }
 
 body {
   background: #E5E5E5;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  font-size: 14px; }
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #222222; }
 
 .container {
   max-width: 996px;
   margin: 0 auto;
   position: relative; }
-  .container h1 {
-    margin: 41px 0; }
+  .container_title {
+    margin: 41px 0;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px; }
 
 .tab-item {
   width: 152px;
@@ -85,12 +104,14 @@ body {
   background-color: #edeeef;
   border-radius: 5px 5px 0px 0px;
   color: #999999;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
   .tab-item.active {
     background-color: #fff;
     color: #215BF0; }
-  .tab-item label {
-    cursor: pointer; }
+  .tab-item_title {
+    cursor: pointer;
+    font-size: 16px; }
   .tab-item i {
     display: none; }
 
@@ -98,22 +119,23 @@ body {
   width: 100%;
   position: absolute;
   display: none;
-  padding: 20px 35px 20px 25px;
+  padding: 30px 40px;
   background-color: #fff; }
   .tabs-content:first-of-type {
     display: block; }
-  .tabs-content label {
-    line-height: 26px; }
 
 .delivery-form {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto 10px auto 10px auto 10px auto;
+  -ms-grid-rows: auto 20px auto 20px auto 20px auto;
   grid-template-areas: 'name ph' 'adr adr' 'com com' '. btn';
-  -ms-grid-columns: 50% 12px 50%;
-  grid-template-columns: 50% 50%;
-  grid-column-gap: 12px;
-  grid-row-gap: 10px; }
+  -ms-grid-columns: 1fr 24px 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 20px; }
+  .delivery-form_label {
+    font-size: 12px;
+    line-height: 16px; }
   .delivery-form_name {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -132,67 +154,60 @@ body {
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-area: com; }
-    .delivery-form_comment textarea {
-      height: 111px;
-      resize: none; }
   .delivery-form_submit {
     -ms-grid-row: 7;
     -ms-grid-column: 3;
     grid-area: btn;
     margin-left: auto; }
 
-.pickup-form_radio {
+.pickup-form_radio-group {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; }
-  .pickup-form_radio-item {
-    position: relative; }
-    .pickup-form_radio-item label {
-      padding-left: 35px;
-      color: #000;
-      cursor: pointer; }
-      .pickup-form_radio-item label::before {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #dadef0;
-        background-color: #fff;
-        border-radius: 50%;
-        top: 0;
-        left: 0;
-        z-index: 1; }
-      .pickup-form_radio-item label:hover {
-        color: #212bff; }
-        .pickup-form_radio-item label:hover::before {
-          border-color: #212bff; }
-      .pickup-form_radio-item label:after {
-        content: "";
-        width: 6px;
-        height: 6px;
-        display: block;
-        border-radius: 50%;
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        z-index: 2;
-        opacity: 0; }
-      .pickup-form_radio-item label:disabled {
-        color: #b8bed8; }
-        .pickup-form_radio-item label:disabled::before {
-          background-color: #edeeef; }
-    .pickup-form_radio-item input[type="radio"]:checked + label::before {
-      border-color: #212bff; }
-    .pickup-form_radio-item input[type="radio"]:checked + label::after {
-      background-color: #212bff;
-      opacity: 1; }
+
+.pickup-form_radio-item {
+  position: relative; }
+
+.pickup-form_radio-label {
+  padding-left: 30px;
+  cursor: pointer;
+  line-height: 24px; }
+  .pickup-form_radio-label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #222222;
+    border-radius: 50%;
+    top: 0;
+    left: 0; }
+  .pickup-form_radio-label:hover {
+    color: #215BF0; }
+  .pickup-form_radio-label:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    opacity: 0; }
+  .pickup-form_radio-label:disabled {
+    color: #999999; }
+    .pickup-form_radio-label:disabled::before {
+      background-color: #edeeef; }
+
+.pickup-form_radio:checked + .pickup-form_radio-label::after {
+  background-color: #222222;
+  opacity: 1; }
 
 .pickup-form_map {
   width: 100%;
   height: 360px;
   margin-top: 5px;
-  margin-bottom: 10px; }
+  margin-bottom: 20px; }
 
 .pickup-form_submit {
   display: block;
@@ -204,9 +219,13 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    border-radius: 0; }
+    border-radius: 0;
+    border-top: 1px solid #8288a2;
+    border-bottom: 1px solid #8288a2; }
     .tab-item.active i {
       transform: rotate(180deg); }
+    .tab-item:last-of-type.active {
+      border-top: none; }
     .tab-item i {
       display: flex;
       transition: 0.5s; }

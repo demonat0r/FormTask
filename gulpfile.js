@@ -28,7 +28,9 @@ gulp.task('sass', function() {
 gulp.task('babeljs', function() {
     return gulp.src("src/js/*.js")
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
         .pipe(concat("all.js"))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest("dist/js"))

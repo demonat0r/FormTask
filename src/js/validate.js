@@ -1,5 +1,7 @@
-const firstFormFields = document.querySelectorAll('.delivery-form_required');
-const secondFormFields = document.querySelectorAll('.pickup-form_radio-required')
+const firstFormFields = document.querySelectorAll('.delivery-form_input');
+const firstFormMessages = document.querySelectorAll('.delivery-form_error-msg');
+const firstFormImages = document.querySelectorAll('.delivery-form_error-img')
+const secondFormFields = document.querySelectorAll('.pickup-form_radio');
 const firstForm = document.querySelector('.delivery-form');
 const secondForm = document.querySelector('.pickup-form');
 const errorRadio = document.getElementById('error-radio');
@@ -9,52 +11,51 @@ const errorRadio = document.getElementById('error-radio');
 firstForm.addEventListener('submit', e => {
     e.preventDefault(); 
 
-    firstFormFields.forEach( el => firstFormCheck(el));
+    firstFormFields.forEach( (el, index) => firstFormCheck(el, index));
 });
 
-firstFormFields.forEach( el => {
-    el.onblur = () => firstFormCheck(el)
-    el.onfocus = () =>  { 
-        el.nextElementSibling.style.visibility = 'hidden'
-        el.classList.remove('error')
-    }
+firstFormFields.forEach( (el, index) => {
+    el.onblur = () => firstFormCheck(el, index)
+    el.onfocus = () => removeErrorItems(index)
 })
 
-function firstFormCheck(field) {
+function setErrorItems(index, msg) {
+    firstFormMessages[index].innerHTML = msg
+    firstFormMessages[index].classList.add('visible')
+    firstFormImages[index].classList.add('visible')
+}
+
+function removeErrorItems(index) {
+    firstFormMessages[index].classList.remove('visible')
+    firstFormImages[index].classList.remove('visible')
+}
+
+function firstFormCheck(field, i) {
     if (field.value === '') {
-        field.classList.add('error')
-        field.nextElementSibling.innerHTML = 'Это поле обязательно для заполнения'
-        field.nextElementSibling.style.visibility = 'visible'
+        setErrorItems(i, 'Это поле обязательно для заполнения')
     }
     else if (field.classList[1] === 'tel') {
         let regExp = /\+7\(\d{3}\) \d{3}-\d{2}-\d{2}/
 
         if (!regExp.test(field.value)) {
-            field.classList.add('error')
-            field.nextElementSibling.innerHTML = 'Неверно введен номер телефона'
-            field.nextElementSibling.style.visibility = 'visible'
+            setErrorItems(i, 'Неверно введен номер телефона')
         }
         else {
-            field.classList.remove('error')
-            field.nextElementSibling.style.visibility = 'hidden'
+            removeErrorItems(i)
         } 
     }
     else if (field.classList[1] === 'person') {
         let regExp = /^[а-яё -]+$/i
 
         if (!regExp.test(field.value)) {
-            field.classList.add('error')
-            field.nextElementSibling.innerHTML = 'Только кириллица, пробел и тире'
-            field.nextElementSibling.style.visibility = 'visible'
+            setErrorItems(i, 'Только кириллица, пробел и тире')
         }
         else {
-            field.classList.remove('error')
-            field.nextElementSibling.style.visibility = 'hidden'
+            removeErrorItems(i)
         }
     }
     else {
-        field.nextElementSibling.style.visibility = 'hidden' 
-        field.classList.remove('error')  
+        removeErrorItems(i) 
     }
 }
 

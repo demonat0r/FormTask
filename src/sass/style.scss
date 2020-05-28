@@ -8,8 +8,9 @@
 body {
     background: #E5E5E5;
     font-family: $font-stack;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 14px;
+    color: #222222;
 }
 
 .container {
@@ -17,8 +18,11 @@ body {
     margin: 0 auto;
     position: relative; 
 
-    h1 {
+    &_title {
         margin: 41px 0;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 40px;
     }
 }
 
@@ -28,16 +32,18 @@ body {
     border: none;
     background-color: $disable-bgcolor;
     border-radius: 5px 5px 0px 0px;
-    color: #999999;
+    color: $light-grey;
     cursor: pointer;
+    outline: none;
 
     &.active {
         background-color: #fff;
-        color: #215BF0;
+        color: $lightblue-color;
     }
 
-    label {
+    &_title {
         cursor: pointer;
+        font-size: 16px;
     }
 
     i {
@@ -45,39 +51,38 @@ body {
     }
 }
 
-
 .tabs-content {
     width: 100%;
     position: absolute;
     display:none;
-    padding: 20px 35px 20px 25px;
+    padding: 30px 40px;
     background-color: #fff;
 
     &:first-of-type {
         display: block;
     }
-    
-    label {
-        line-height: 26px;
-    }    
 }
 
 .delivery-form {
     display: grid;
     grid-template-areas: 'name ph' 'adr adr' 'com com' '. btn';
-    grid-template-columns: 50% 50%;
-    grid-column-gap: 12px;
-    grid-row-gap: 10px;
-    
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 20px;
 
+    &_label {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    
     &_name {
         grid-area: name;
-        @extend %flex-tool;  
+        @extend %flex-tool;
     }
 
     &_phone {
         grid-area: ph;
-        @extend %flex-tool; 
+        @extend %flex-tool;
     }
 
     &_adress {
@@ -88,11 +93,6 @@ body {
     &_comment {
         grid-area: com;
         @extend %flex-tool; 
-
-        textarea {
-            height: 111px;
-            resize: none;
-        }
     }
 
     &_submit {
@@ -104,80 +104,69 @@ body {
 
 .pickup-form {
 
-    &_radio {
+    &_radio-group {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }       
        
-        &-item {
-            position: relative;
+    &_radio-item {
+        position: relative;
+    }
 
-            label {
-                padding-left: 35px;
-                
-                color: #000;
-                cursor: pointer;
-    
-                &::before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    width: 20px;
-                    height: 20px;
-                    border: 1px solid #dadef0;
-                    background-color: #fff;
-                    border-radius: 50%;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                }
-    
-                &:hover {
-                    color: $lightblue-color;
+    &_radio-label {
+        padding-left: 30px;
+        cursor: pointer;
+        line-height: 24px;
 
-                    &::before {
-                        border-color: $lightblue-color;
-                    }
-                }
-    
-                &:after {
-                    content: "";
-                    width: 6px;
-                    height: 6px;
-                    display: block;
-                    border-radius: 50%;
-                    position: absolute;
-                    top: 8px;
-                    left: 8px;
-                    z-index: 2;
-                    opacity: 0;
-                }
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $dark-color;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+        }
 
-                &:disabled {
-                    color: $light-grey;
+        &:hover {
+            color: $lightblue-color;
+        }
 
-                    &::before {
-                        background-color: $disable-bgcolor;
-                    }
-                }
-            }
-    
-            input[type="radio"]:checked + label::before {
-                border-color: $lightblue-color;
-            }
-    
-            input[type="radio"]:checked + label::after {
-                background-color: $lightblue-color;
-                opacity: 1;
+        &:after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            opacity: 0;
+        }
+
+        &:disabled {
+            color: $light-grey;
+
+            &::before {
+                background-color: $disable-bgcolor;
             }
         }
     }
+
+    &_radio:checked + &_radio-label::after {
+        background-color: $dark-color;
+        opacity: 1;
+    }
+    
 
     &_map {
         width: 100%;
         height: 360px;
         margin-top: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     &_submit {
