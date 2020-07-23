@@ -18,9 +18,9 @@ document.querySelectorAll('.tab-item').forEach(function (element) {
       elem.style.display = 'none';
     });
     document.querySelectorAll('.tab-item').forEach(function (e) {
-      e.classList.remove('active');
+      e.classList.remove('tab-item_active');
     });
-    event.currentTarget.classList.add('active');
+    event.currentTarget.classList.add('tab-item_active');
     document.getElementById(element.name).style.display = 'block';
   });
 });
@@ -50,7 +50,10 @@ function init() {
   });
   var coords = [[55.75, 37.50], [55.32216911184813, 38.67462917402046]];
   var myCollection = new ymaps.GeoObjectCollection({}, {
-    preset: 'islands#blueShoppingIcon'
+    iconLayout: 'default#image',
+    iconImageHref: '../img/pin.svg',
+    iconImageSize: [33, 40],
+    iconImageOffset: [-3, -42]
   });
 
   for (var i = 0; i < coords.length; i++) {
@@ -65,17 +68,20 @@ function init() {
   myMap.controls.remove('typeSelector');
   myMap.controls.remove('fullscreenControl');
   myMap.controls.remove('rulerControl');
-
-  if ($(window).width() < 768) {
-    myMap.behaviors.disable('scrollZoom');
-  }
+  $(window).resize(function () {
+    if ($(window).width() < 768) {
+      myMap.behaviors.disable('scrollZoom');
+    } else {
+      myMap.behaviors.enable('scrollZoom');
+    }
+  });
 }
 "use strict";
 
-var firstFormFields = document.querySelectorAll('.delivery-form_input');
-var firstFormMessages = document.querySelectorAll('.delivery-form_error-msg');
-var firstFormImages = document.querySelectorAll('.delivery-form_error-img');
-var secondFormFields = document.querySelectorAll('.pickup-form_radio');
+var firstFormFields = document.querySelectorAll('.delivery-form__input');
+var firstFormMessages = document.querySelectorAll('.delivery-form__error-msg');
+var firstFormImages = document.querySelectorAll('.delivery-form__error-img');
+var secondFormFields = document.querySelectorAll('.pickup-form__radio');
 var firstForm = document.querySelector('.delivery-form');
 var secondForm = document.querySelector('.pickup-form');
 var errorRadio = document.getElementById('error-radio'); //first form validation

@@ -17,10 +17,10 @@ document.querySelectorAll('.tab-item').forEach( element => {
         })
 
         document.querySelectorAll('.tab-item').forEach( e => {
-            e.classList.remove('active')
+            e.classList.remove('tab-item_active')
         })
         
-        event.currentTarget.classList.add('active');
+        event.currentTarget.classList.add('tab-item_active');
         document.getElementById(element.name).style.display = 'block'
     })
 })

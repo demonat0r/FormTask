@@ -4,19 +4,20 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding: 0 10px;
+        
+        padding: 15px 10px;
         border-radius: 0;
         border-top: 1px solid $disable-color;
         border-bottom: 1px solid $disable-color;
 
-        &.active {
+        &_active {
             i {
                 transform: rotate(180deg);
             }
         }
 
         &:last-of-type {
-            &.active {
+            &.tab-item_active {
                 border-top: none;
             }
         }
@@ -35,15 +36,15 @@
         grid-template-areas: 'name name' 'ph ph' 'adr adr' 'com com' 'btn btn';
     }
 
-    .pickup-form_radio-item:last-of-type {
+    .pickup-form__radio-item:last-of-type {
         margin-top: 24px;
     }
 }
 
 @media (max-width: 500px) {
 
-    .delivery-form_submit,
-    .pickup-form_submit {
+    .delivery-form__submit,
+    .pickup-form__submit {
         margin: 0 auto;
     }
 }

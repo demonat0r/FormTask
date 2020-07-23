@@ -1,9 +1,9 @@
-.delivery-form_name, .delivery-form_phone, .delivery-form_adress, .delivery-form_comment {
+.delivery-form__name, .delivery-form__phone, .delivery-form__adress, .delivery-form__comment {
   display: flex;
   flex-direction: column;
   position: relative; }
 
-.delivery-form_input {
+.delivery-form__input {
   padding-left: 21px;
   margin-top: 12px;
   border-radius: 4px;
@@ -14,28 +14,28 @@
   font-size: 16px;
   font-weight: normal;
   line-height: 24px; }
-  .delivery-form_input::-webkit-input-placeholder {
+  .delivery-form__input::-webkit-input-placeholder {
     color: #999999; }
-  .delivery-form_input:-ms-input-placeholder {
+  .delivery-form__input:-ms-input-placeholder {
     color: #999999; }
-  .delivery-form_input::-ms-input-placeholder {
+  .delivery-form__input::-ms-input-placeholder {
     color: #999999; }
-  .delivery-form_input::placeholder {
+  .delivery-form__input::placeholder {
     color: #999999; }
-  .delivery-form_input:hover {
+  .delivery-form__input:hover {
     border: 1px solid #c3c9db; }
-  .delivery-form_input:focus {
+  .delivery-form__input:focus {
     border: 1px solid #222222;
     outline: none; }
-  .delivery-form_input:disabled {
+  .delivery-form__input:disabled {
     border: none;
     background-color: #edeeef; }
-  .delivery-form_input.comment {
+  .delivery-form__input.comment {
     height: 111px;
     resize: none; }
 
-.delivery-form_submit,
-.pickup-form_submit {
+.delivery-form__submit,
+.pickup-form__submit {
   font-size: 16px;
   line-height: 24px;
   width: 200px;
@@ -44,37 +44,41 @@
   background-color: #215BF0;
   color: #fff;
   cursor: pointer;
-  border: none; }
-  .delivery-form_submit:hover,
-  .pickup-form_submit:hover {
+  border: none;
+  outline: none; }
+  .delivery-form__submit:hover,
+  .pickup-form__submit:hover {
     background-color: #2029ea; }
-  .delivery-form_submit:active,
-  .pickup-form_submit:active {
+  .delivery-form__submit:active,
+  .pickup-form__submit:active {
     background-color: #0F41C4; }
-  .delivery-form_submit:disabled,
-  .pickup-form_submit:disabled {
+  .delivery-form__submit:disabled,
+  .pickup-form__submit:disabled {
     background-color: #edeeef;
     color: #999999; }
 
-.pickup-form_radio {
+.pickup-form__radio {
   visibility: hidden;
   position: absolute; }
 
-.delivery-form_error-msg,
-.pickup-form_error-msg {
+.delivery-form__error-msg,
+.pickup-form__error-msg {
   visibility: hidden;
   font-size: 12px;
   line-height: 16px;
   color: #F12828; }
 
-.delivery-form_error-img {
+.delivery-form__error-msg {
+  margin-top: 4px; }
+
+.delivery-form__error-img {
   visibility: hidden;
-  top: 47px;
+  top: 44px;
   right: 10px;
   position: absolute; }
 
-.delivery-form_error-msg.visible,
-.delivery-form_error-img.visible {
+.delivery-form__error-msg.visible,
+.delivery-form__error-img.visible {
   visibility: visible; }
 
 * {
@@ -91,7 +95,7 @@ body {
   max-width: 996px;
   margin: 0 auto;
   position: relative; }
-  .container_title {
+  .container__title {
     margin: 41px 0;
     font-weight: normal;
     font-size: 32px;
@@ -106,10 +110,10 @@ body {
   color: #999999;
   cursor: pointer;
   outline: none; }
-  .tab-item.active {
+  .tab-item_active {
     background-color: #fff;
     color: #215BF0; }
-  .tab-item_title {
+  .tab-item__title {
     cursor: pointer;
     font-size: 16px; }
   .tab-item i {
@@ -133,46 +137,46 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 24px;
   grid-row-gap: 20px; }
-  .delivery-form_label {
+  .delivery-form__label {
     font-size: 12px;
     line-height: 16px; }
-  .delivery-form_name {
+  .delivery-form__name {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: name; }
-  .delivery-form_phone {
+  .delivery-form__phone {
     -ms-grid-row: 1;
     -ms-grid-column: 3;
     grid-area: ph; }
-  .delivery-form_adress {
+  .delivery-form__adress {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-area: adr; }
-  .delivery-form_comment {
+  .delivery-form__comment {
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-area: com; }
-  .delivery-form_submit {
+  .delivery-form__submit {
     -ms-grid-row: 7;
     -ms-grid-column: 3;
     grid-area: btn;
     margin-left: auto; }
 
-.pickup-form_radio-group {
+.pickup-form__radio-group {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; }
 
-.pickup-form_radio-item {
+.pickup-form__radio-item {
   position: relative; }
 
-.pickup-form_radio-label {
+.pickup-form__radio-label {
   padding-left: 30px;
   cursor: pointer;
   line-height: 24px; }
-  .pickup-form_radio-label::before {
+  .pickup-form__radio-label::before {
     content: "";
     display: block;
     position: absolute;
@@ -182,9 +186,9 @@ body {
     border-radius: 50%;
     top: 0;
     left: 0; }
-  .pickup-form_radio-label:hover {
+  .pickup-form__radio-label:hover {
     color: #215BF0; }
-  .pickup-form_radio-label:after {
+  .pickup-form__radio-label:after {
     content: "";
     width: 6px;
     height: 6px;
@@ -194,22 +198,22 @@ body {
     top: 8px;
     left: 8px;
     opacity: 0; }
-  .pickup-form_radio-label:disabled {
+  .pickup-form__radio-label:disabled {
     color: #999999; }
-    .pickup-form_radio-label:disabled::before {
+    .pickup-form__radio-label:disabled::before {
       background-color: #edeeef; }
 
-.pickup-form_radio:checked + .pickup-form_radio-label::after {
+.pickup-form__radio:checked + .pickup-form__radio-label::after {
   background-color: #222222;
   opacity: 1; }
 
-.pickup-form_map {
+.pickup-form__map {
   width: 100%;
   height: 360px;
   margin-top: 5px;
   margin-bottom: 20px; }
 
-.pickup-form_submit {
+.pickup-form__submit {
   display: block;
   margin-left: auto; }
 
@@ -218,13 +222,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 15px 10px;
     border-radius: 0;
     border-top: 1px solid #8288a2;
     border-bottom: 1px solid #8288a2; }
-    .tab-item.active i {
+    .tab-item_active i {
       transform: rotate(180deg); }
-    .tab-item:last-of-type.active {
+    .tab-item:last-of-type.tab-item_active {
       border-top: none; }
     .tab-item i {
       display: flex;
@@ -233,30 +237,30 @@ body {
     position: relative; }
   .delivery-form {
     grid-template-areas: 'name name' 'ph ph' 'adr adr' 'com com' 'btn btn'; }
-  .pickup-form_radio-item:last-of-type {
+  .pickup-form__radio-item:last-of-type {
     margin-top: 24px; }
-  .delivery-form_name {
+  .delivery-form__name {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-  .delivery-form_phone {
+  .delivery-form__phone {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-  .delivery-form_adress {
+  .delivery-form__adress {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-  .delivery-form_comment {
+  .delivery-form__comment {
     -ms-grid-row: 4;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; }
-  .delivery-form_submit {
+  .delivery-form__submit {
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2; } }
 
 @media (max-width: 500px) {
-  .delivery-form_submit,
-  .pickup-form_submit {
+  .delivery-form__submit,
+  .pickup-form__submit {
     margin: 0 auto; } }

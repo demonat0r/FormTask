@@ -11,7 +11,10 @@ function init(){
     ];
 
     var myCollection = new ymaps.GeoObjectCollection({}, {
-        preset: 'islands#blueShoppingIcon'
+        iconLayout: 'default#image',
+        iconImageHref: '../img/pin.svg',
+        iconImageSize: [33, 40],
+        iconImageOffset: [-3, -42]
     });
 
 
@@ -40,7 +43,11 @@ function init(){
     myMap.controls.remove('rulerControl')
 
 
-    if ($(window).width() < 768){
-        myMap.behaviors.disable('scrollZoom'); 
-    } 
+    $(window).resize(function() {
+        if($(window).width() < 768){
+            myMap.behaviors.disable('scrollZoom'); 
+        }else{
+            myMap.behaviors.enable('scrollZoom');
+        } 
+    });
 }

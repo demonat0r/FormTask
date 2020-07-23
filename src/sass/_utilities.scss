@@ -1,4 +1,4 @@
-.delivery-form_input {
+.delivery-form__input {
     padding-left: 21px;
     margin-top: 12px;
     border-radius: 4px;
@@ -36,8 +36,8 @@
 
 }
 
-.delivery-form_submit,
-.pickup-form_submit {
+.delivery-form__submit,
+.pickup-form__submit {
     font-size: 16px;
     line-height: 24px;
     width: 200px;
@@ -47,6 +47,7 @@
     color: #fff;
     cursor: pointer;
     border: none;
+    outline: none;
 
     &:hover {
         background-color: #2029ea;
@@ -62,29 +63,32 @@
     }
 }
 
-.pickup-form_radio {
+.pickup-form__radio {
     visibility: hidden;
     position: absolute;
 }
 
 
-.delivery-form_error-msg,
-.pickup-form_error-msg {
+.delivery-form__error-msg,
+.pickup-form__error-msg {
     visibility: hidden;
     font-size: 12px;
     line-height: 16px;
     color: #F12828;
 }
+.delivery-form__error-msg {
+    margin-top: 4px;
+}
 
-.delivery-form_error-img {
+.delivery-form__error-img {
     visibility: hidden;
-    top: 47px;
+    top: 44px;
     right: 10px;
     position: absolute;
 }
 
-.delivery-form_error-msg,
-.delivery-form_error-img {
+.delivery-form__error-msg,
+.delivery-form__error-img {
 
     &.visible {
         visibility: visible;

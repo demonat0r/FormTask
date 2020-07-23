@@ -18,7 +18,7 @@ body {
     margin: 0 auto;
     position: relative; 
 
-    &_title {
+    &__title {
         margin: 41px 0;
         font-weight: normal;
         font-size: 32px;
@@ -36,12 +36,12 @@ body {
     cursor: pointer;
     outline: none;
 
-    &.active {
+    &_active {
         background-color: #fff;
         color: $lightblue-color;
     }
 
-    &_title {
+    &__title {
         cursor: pointer;
         font-size: 16px;
     }
@@ -70,32 +70,32 @@ body {
     grid-column-gap: 24px;
     grid-row-gap: 20px;
 
-    &_label {
+    &__label {
         font-size: 12px;
         line-height: 16px;
     }
     
-    &_name {
+    &__name {
         grid-area: name;
         @extend %flex-tool;
     }
 
-    &_phone {
+    &__phone {
         grid-area: ph;
         @extend %flex-tool;
     }
 
-    &_adress {
+    &__adress {
         grid-area: adr;
         @extend %flex-tool; 
     }
 
-    &_comment {
+    &__comment {
         grid-area: com;
         @extend %flex-tool; 
     }
 
-    &_submit {
+    &__submit {
         grid-area: btn;
         margin-left: auto;
     }
@@ -104,17 +104,17 @@ body {
 
 .pickup-form {
 
-    &_radio-group {
+    &__radio-group {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }       
        
-    &_radio-item {
+    &__radio-item {
         position: relative;
     }
 
-    &_radio-label {
+    &__radio-label {
         padding-left: 30px;
         cursor: pointer;
         line-height: 24px;
@@ -156,20 +156,20 @@ body {
         }
     }
 
-    &_radio:checked + &_radio-label::after {
+    &__radio:checked + &__radio-label::after {
         background-color: $dark-color;
         opacity: 1;
     }
     
 
-    &_map {
+    &__map {
         width: 100%;
         height: 360px;
         margin-top: 5px;
         margin-bottom: 20px;
     }
 
-    &_submit {
+    &__submit {
         display: block;
         margin-left: auto;
     }   

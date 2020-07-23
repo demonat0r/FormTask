@@ -10,59 +10,59 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="container_title">Выберите способ доставки</h1>
-        <button class="tab-item active" name="first_tab">
-            <label class="tab-item_title">Доставка</label> 
+        <h1 class="container__title">Выберите способ доставки</h1>
+        <button class="tab-item tab-item_active" name="first_tab">
+            <label class="tab-item__title">Доставка</label> 
             <i class="fas fa-chevron-down"></i>
         </button>
         <div id="first_tab" class="tabs-content">
             <form class="delivery-form" action="#">
-                <div class="delivery-form_name">
-                    <label class="delivery-form_label">ФИО</label>
-                    <input class="delivery-form_input person" type="text" placeholder="Только кириллица">
-                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
-                    <label class="delivery-form_error-msg">.</label>
+                <div class="delivery-form__name">
+                    <label class="delivery-form__label" for="name">ФИО</label>
+                    <input class="delivery-form__input person" id="name" type="text" placeholder="Только кириллица">
+                    <img class="delivery-form__error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form__error-msg">.</label>
                 </div>
-                <div class="delivery-form_phone">
-                    <label class="delivery-form_label">Телефон</label>
-                    <input class="delivery-form_input tel" id="phone" type="tel" placeholder="+7 (___) ___-__-__" >
-                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
-                    <label class="delivery-form_error-msg">.</label>
+                <div class="delivery-form__phone">
+                    <label class="delivery-form__label" for="phone">Телефон</label>
+                    <input class="delivery-form__input tel" id="phone" type="tel" placeholder="+7 (___) ___-__-__" >
+                    <img class="delivery-form__error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form__error-msg">.</label>
                 </div>
-                <div class="delivery-form_adress">    
-                    <label class="delivery-form_label">Адрес доставки</label>
-                    <input class="delivery-form_input" type="text" placeholder="Город, улица, дом">
-                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
-                    <label class="delivery-form_error-msg">.</label>
+                <div class="delivery-form__adress">    
+                    <label class="delivery-form__label" for="adress">Адрес доставки</label>
+                    <input class="delivery-form__input" id="adress" type="text" placeholder="Город, улица, дом">
+                    <img class="delivery-form__error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form__error-msg">.</label>
                 </div>
-                <div class="delivery-form_comment">
-                    <label class="delivery-form_label">Комментарий</label>
-                    <textarea class="delivery-form_input comment"></textarea>
-                    <img class="delivery-form_error-img" src="img/icon_alert.svg" alt="alert">
-                    <label class="delivery-form_error-msg">.</label>
+                <div class="delivery-form__comment">
+                    <label class="delivery-form__label" for="comment">Комментарий</label>
+                    <textarea class="delivery-form__input comment" id="comment"></textarea>
+                    <img class="delivery-form__error-img" src="img/icon_alert.svg" alt="alert">
+                    <label class="delivery-form__error-msg">.</label>
                 </div>
-                <input class="delivery-form_submit" type="submit" value="Оформить заказ">
+                <input class="delivery-form__submit" type="submit" value="Оформить заказ">
             </form>
         </div>
         <button class="tab-item" name="second_tab">
-            <label class="tab-item_title">Самовывоз</label> 
+            <label class="tab-item__title">Самовывоз</label> 
             <i class="fas fa-chevron-down"></i>
         </button>
         <div id="second_tab" class="tabs-content">
             <form action="#" class="pickup-form">
-                <div class="pickup-form_radio-group">
-                    <div class="pickup-form_radio-item">
-                        <input class="pickup-form_radio" type="radio" name="adr" id="radio_1">
-                        <label class="pickup-form_radio-label" for="radio_1">Пункт Выдачи заказов Песчаная улица, дом 13 </label>
+                <div class="pickup-form__radio-group">
+                    <div class="pickup-form__radio-item">
+                        <input class="pickup-form__radio" type="radio" name="adr" id="radio_1">
+                        <label class="pickup-form__radio-label" for="radio_1">Пункт Выдачи заказов Песчаная улица, дом 13 </label>
                     </div>
-                    <div class="pickup-form_radio-item">
-                        <input class="pickup-form_radio" type="radio" name="adr" id="radio_2">
-                        <label class="pickup-form_radio-label" for="radio_2">Пункт Выдачи заказов Подсосенский переулок, 11</label>
+                    <div class="pickup-form__radio-item">
+                        <input class="pickup-form__radio" type="radio" name="adr" id="radio_2">
+                        <label class="pickup-form__radio-label" for="radio_2">Пункт Выдачи заказов Подсосенский переулок, 11</label>
                     </div>
                 </div>
-                <label id="error-radio" class="pickup-form_error-msg">.</label>
-                <div id="map" class="pickup-form_map"></div>
-                <input class="pickup-form_submit" type="submit" value="Оформить заказ">
+                <label id="error-radio" class="pickup-form__error-msg">.</label>
+                <div id="map" class="pickup-form__map"></div>
+                <input class="pickup-form__submit" type="submit" value="Оформить заказ">
             </form>
         </div>
     </div>
